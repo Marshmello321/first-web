@@ -5,89 +5,258 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creator Support Page</title>
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            /* A dark, modern background */
-            background-color: #121212;
-            color: white;
+            /* Professional dark modern gradient background */
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            margin: 0;
             padding: 20px;
         }
-        .profile-card {
-            background-color: #1e1e1e;
+
+        .container {
+            display: flex;
+            max-width: 900px;
             width: 100%;
-            max-width: 400px;
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            background: rgba(15, 15, 15, 0.7);
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
         }
-        .profile-img {
+
+        /* LEFT PANEL - 1/3 WIDTH */
+        .left-panel {
+            flex: 1;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            border: 3px solid #007BFF;
+            border: 3px solid #74EBD5; /* Sleek cyan border */
             object-fit: cover;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            background-color: #333; 
         }
-        .bio {
-            color: #b3b3b3;
-            font-size: 15px;
-            margin-bottom: 25px;
-            line-height: 1.5;
-        }
-        .link-btn {
-            display: block;
-            background-color: #333;
-            color: white;
-            text-decoration: none;
-            padding: 12px;
-            margin-bottom: 10px;
-            border-radius: 8px;
-            transition: 0.3s;
+
+        .channel-name {
+            font-size: 24px;
             font-weight: bold;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
         }
-        .link-btn:hover {
-            background-color: #007BFF;
-        }
-        .qr-section {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #333;
-        }
-        .qr-image {
-            width: 150px;
-            height: 150px;
+
+        .description-box {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 15px;
             border-radius: 10px;
-            margin-top: 10px;
+            font-size: 14px;
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        /* RIGHT PANEL - 2/3 WIDTH */
+        .right-panel {
+            flex: 2;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .section-title {
+            margin-bottom: 25px;
+            font-size: 20px;
+            color: #eeeeee;
+        }
+
+        /* TIERS */
+        .tiers {
+            display: flex;
+            gap: 15px;
+            width: 100%;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .tier-btn {
+            flex: 1;
+            padding: 15px 10px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            color: #111;
+        }
+
+        .tier-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Metallic Gradients for the Buttons */
+        .silver {
+            background: linear-gradient(135deg, #e0e0e0, #9e9e9e);
+            box-shadow: 0 4px 15px rgba(158, 158, 158, 0.3);
+        }
+        .gold {
+            background: linear-gradient(135deg, #ffd700, #daa520);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+        .diamond {
+            background: linear-gradient(135deg, #b9f2ff, #00d2ff);
+            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
+        }
+
+        /* QR DISPLAY AREA */
+        .qr-display {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            width: 100%;
+            max-width: 320px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        #qr-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 10px;
+            margin: 10px auto;
+            background-color: white;
+            padding: 10px;
+        }
+
+        .upi-id {
+            margin-top: 15px;
+            font-size: 15px;
+            color: #a0a0a0;
+            letter-spacing: 0.5px;
+        }
+
+        /* SOCIAL LINKS */
+        .social-links {
+            display: flex;
+            gap: 15px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .social-btn {
+            text-decoration: none;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+            text-align: center;
+            min-width: 130px;
+        }
+
+        .yt {
+            background-color: #FF0000;
+        }
+        .yt:hover { background-color: #cc0000; }
+
+        .insta {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+        .insta:hover { filter: brightness(1.1); }
+
+        /* Makes it stack vertically on mobile phones */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .left-panel {
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="profile-card">
-        <!-- 1. Profile Picture / Logo -->
-        <img src="https://via.placeholder.com/150" alt="My Logo" class="profile-img">
-        
-        <!-- 2. Name and Description -->
-        <h2>My Creator Name</h2>
-        <p class="bio">Welcome to my page! I create high-energy gaming challenges, custom 3D animations, and entertaining content. Thank you for the support!</p>
+    <div class="container">
+        <!-- LEFT PANEL -->
+        <div class="left-panel">
+            <!-- Ensure your logo image is uploaded to GitHub and matches this name -->
+            <img src="my-logo.png" alt="Logo" class="logo">
+            <div class="channel-name">Your Channel Name</div>
+            <div class="description-box">
+                Creating high-energy challenge videos, 3D animations, and entertaining content. Thank you for supporting the channel!
+            </div>
+        </div>
 
-        <!-- 3. Social Links -->
-        <a href="YOUR_YOUTUBE_LINK_HERE" class="link-btn">Subscribe on YouTube</a>
-        <a href="YOUR_INSTAGRAM_LINK_HERE" class="link-btn">Follow on Instagram</a>
-        
-        <!-- 4. QR Code Section -->
-        <div class="qr-section">
-            <h3>Support My Work</h3>
-            <p style="font-size: 14px; color: #b3b3b3;">Scan to tip via UPI / App</p>
-            <img src="https://via.placeholder.com/150" alt="Payment QR Code" class="qr-image">
+        <!-- RIGHT PANEL -->
+        <div class="right-panel">
+            <h3 class="section-title">Support My Work</h3>
+            
+            <div class="tiers">
+                <button class="tier-btn silver" onclick="generateQR(49, 'Silver')">Silver<br>₹49</button>
+                <button class="tier-btn gold" onclick="generateQR(249, 'Gold')">Gold<br>₹249</button>
+                <button class="tier-btn diamond" onclick="generateQR(500, 'Diamond')">Diamond<br>₹500</button>
+            </div>
+
+            <div class="qr-display">
+                <p id="qr-instruction" style="color: #cccccc; font-weight: bold;">Select a tier above to generate QR</p>
+                <img id="qr-image" src="" alt="Payment QR Code" style="display: none;">
+                <div class="upi-id">UPI ID: <strong id="display-upi">yourname@upi</strong></div>
+            </div>
+
+            <div class="social-links">
+                <a href="YOUR_INSTA_LINK" class="social-btn insta">Instagram</a>
+                <a href="YOUR_YT_LINK" class="social-btn yt">YouTube</a>
+            </div>
         </div>
     </div>
+
+    <script>
+        // --- IMPORTANT: UPDATE THESE TWO LINES ---
+        const MY_UPI_ID = "yourname@upi"; // Put your actual UPI ID inside the quotes
+        const MY_NAME = "Your Name";      // Put your actual display name inside the quotes
+        // -----------------------------------------
+
+        function generateQR(amount, tierName) {
+            const qrImage = document.getElementById("qr-image");
+            const qrInstruction = document.getElementById("qr-instruction");
+            const upiText = document.getElementById("display-upi");
+            
+            // This formats the payment link perfectly for Indian UPI apps
+            const upiLink = `upi://pay?pa=${MY_UPI_ID}&pn=${MY_NAME}&am=${amount}&cu=INR`;
+            
+            // This free API takes the UPI link and converts it into a scannable image instantly
+            const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiLink)}`;
+            
+            // Updates the webpage with the new QR code and amount
+            qrImage.src = qrApiUrl;
+            qrImage.style.display = "block";
+            qrInstruction.innerText = `${tierName} Tier - Scan to pay ₹${amount}`;
+            upiText.innerText = MY_UPI_ID;
+        }
+    </script>
 
 </body>
 </html>
