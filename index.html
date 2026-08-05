@@ -3,58 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Legit Website</title>
+    <title>Creator Support Page</title>
     <style>
-        /* CSS to style the page and create a simple background */
         body {
-            /* This creates a smooth gradient background */
-            background: linear-gradient(135deg, #74EBD5 0%, #9FACE6 100%);
-            height: 100vh;
-            margin: 0;
+            /* A dark, modern background */
+            background-color: #121212;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
         }
-        .card {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        .profile-card {
+            background-color: #1e1e1e;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 15px;
+            padding: 30px;
             text-align: center;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
         }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #007BFF;
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid #007BFF;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+        .bio {
+            color: #b3b3b3;
+            font-size: 15px;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        .link-btn {
+            display: block;
+            background-color: #333;
             color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 20px;
+            text-decoration: none;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            transition: 0.3s;
+            font-weight: bold;
         }
-        button:hover {
-            background-color: #0056b3;
+        .link-btn:hover {
+            background-color: #007BFF;
+        }
+        .qr-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+        .qr-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <h1 id="welcome-title">Welcome to My Website!</h1>
-        <p>I built this using HTML, CSS, and JavaScript.</p>
-        <button onclick="changeColor()">Click Me</button>
-    </div>
+    <div class="profile-card">
+        <!-- 1. Profile Picture / Logo -->
+        <img src="https://via.placeholder.com/150" alt="My Logo" class="profile-img">
+        
+        <!-- 2. Name and Description -->
+        <h2>My Creator Name</h2>
+        <p class="bio">Welcome to my page! I create high-energy gaming challenges, custom 3D animations, and entertaining content. Thank you for the support!</p>
 
-    <script>
-        // JavaScript from your 12th-grade basics
-        function changeColor() {
-            const title = document.getElementById("welcome-title");
-            // Generates a random color code
-            const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
-            title.style.color = randomColor;
-        }
-    </script>
+        <!-- 3. Social Links -->
+        <a href="YOUR_YOUTUBE_LINK_HERE" class="link-btn">Subscribe on YouTube</a>
+        <a href="YOUR_INSTAGRAM_LINK_HERE" class="link-btn">Follow on Instagram</a>
+        
+        <!-- 4. QR Code Section -->
+        <div class="qr-section">
+            <h3>Support My Work</h3>
+            <p style="font-size: 14px; color: #b3b3b3;">Scan to tip via UPI / App</p>
+            <img src="https://via.placeholder.com/150" alt="Payment QR Code" class="qr-image">
+        </div>
+    </div>
 
 </body>
 </html>
