@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creator Support Page</title>
+    <!-- Importing the Montserrat font for a premium look on the buttons -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
@@ -12,8 +14,8 @@
         }
 
         body {
-            /* Professional dark modern gradient background */
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            /* Smooth, dark background to make the charcoal card pop */
+            background: linear-gradient(135deg, #0d0f12, #1a1d24);
             color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
@@ -27,20 +29,20 @@
             display: flex;
             max-width: 900px;
             width: 100%;
-            background: rgba(15, 15, 15, 0.7);
+            /* Rich charcoal grey background */
+            background: #22252a;
             border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            /* A subtle vibrant green top border for that gaming aesthetic */
+            border-top: 4px solid #00d26a; 
             overflow: hidden;
         }
 
-        /* LEFT PANEL - 1/3 WIDTH */
+        /* LEFT PANEL - Seamless integration, no harsh borders */
         .left-panel {
             flex: 1;
             padding: 40px 30px;
-            background: rgba(255, 255, 255, 0.03);
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.15); /* Slightly darker to separate naturally */
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -49,32 +51,33 @@
         }
 
         .logo {
-            width: 120px;
-            height: 120px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
-            border: 3px solid #74EBD5; /* Sleek cyan border */
+            /* Vibrant green border to match the aesthetic */
+            border: 3px solid #00d26a; 
             object-fit: cover;
             margin-bottom: 20px;
-            background-color: #333; 
+            background-color: #111; 
         }
 
         .channel-name {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: bold;
             margin-bottom: 15px;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
         .description-box {
-            background: rgba(0, 0, 0, 0.4);
-            padding: 15px;
-            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.25);
+            padding: 18px;
+            border-radius: 12px;
             font-size: 14px;
-            color: #cccccc;
+            color: #b5b5b5;
             line-height: 1.6;
         }
 
-        /* RIGHT PANEL - 2/3 WIDTH */
+        /* RIGHT PANEL */
         .right-panel {
             flex: 2;
             padding: 40px;
@@ -85,75 +88,116 @@
 
         .section-title {
             margin-bottom: 25px;
-            font-size: 20px;
-            color: #eeeeee;
+            font-size: 22px;
+            color: #ffffff;
+            font-weight: 600;
         }
 
         /* TIERS */
         .tiers {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             width: 100%;
             justify-content: center;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
         }
 
         .tier-btn {
             flex: 1;
-            padding: 15px 10px;
+            padding: 15px 5px;
             border: none;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: bold;
+            border-radius: 10px;
+            font-size: 15px;
+            /* Applying the custom professional font here */
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: 700;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.2s, filter 0.2s;
             color: #111;
         }
 
         .tier-btn:hover {
-            transform: translateY(-3px);
+            transform: translateY(-2px);
+            filter: brightness(1.1);
         }
 
-        /* Metallic Gradients for the Buttons */
-        .silver {
-            background: linear-gradient(135deg, #e0e0e0, #9e9e9e);
-            box-shadow: 0 4px 15px rgba(158, 158, 158, 0.3);
+        /* Modern, matte metallic gradients */
+        .silver { background: linear-gradient(135deg, #d3d3d3, #a9a9a9); }
+        .gold { background: linear-gradient(135deg, #fceabb, #f8b500); }
+        .diamond { background: linear-gradient(135deg, #89f7fe, #66a6ff); }
+
+        /* CUSTOM AMOUNT SECTION */
+        .custom-amount-wrapper {
+            display: flex;
+            width: 100%;
+            gap: 10px;
+            margin-bottom: 30px;
         }
-        .gold {
-            background: linear-gradient(135deg, #ffd700, #daa520);
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+
+        .custom-input {
+            flex: 2;
+            padding: 12px 15px;
+            background: #191b1f;
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            outline: none;
         }
-        .diamond {
-            background: linear-gradient(135deg, #b9f2ff, #00d2ff);
-            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
+
+        .custom-input:focus {
+            border-color: #00d26a;
+        }
+
+        .custom-btn {
+            flex: 1;
+            background: #00d26a; /* Vibrant green */
+            color: #111;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .custom-btn:hover {
+            background: #00e676;
         }
 
         /* QR DISPLAY AREA */
         .qr-display {
-            background: rgba(255, 255, 255, 0.05);
+            background: #191b1f;
             padding: 25px;
-            border-radius: 15px;
+            border-radius: 12px;
             text-align: center;
             width: 100%;
             max-width: 320px;
             margin-bottom: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid #333;
+        }
+
+        #qr-instruction {
+            color: #00d26a; /* Accented text */
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 15px;
         }
 
         #qr-image {
             width: 180px;
             height: 180px;
-            border-radius: 10px;
-            margin: 10px auto;
+            border-radius: 8px;
+            margin: 0 auto;
             background-color: white;
             padding: 10px;
         }
 
         .upi-id {
             margin-top: 15px;
-            font-size: 15px;
-            color: #a0a0a0;
-            letter-spacing: 0.5px;
+            font-size: 14px;
+            color: #888;
         }
 
         /* SOCIAL LINKS */
@@ -170,30 +214,20 @@
             padding: 12px 25px;
             border-radius: 8px;
             font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
             transition: 0.3s;
             text-align: center;
             min-width: 130px;
+            font-size: 14px;
         }
 
-        .yt {
-            background-color: #FF0000;
-        }
-        .yt:hover { background-color: #cc0000; }
-
-        .insta {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-        }
+        .yt { background-color: #e52d27; }
+        .yt:hover { background-color: #b31217; }
+        .insta { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
         .insta:hover { filter: brightness(1.1); }
 
-        /* Makes it stack vertically on mobile phones */
         @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-            .left-panel {
-                border-right: none;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
+            .container { flex-direction: column; }
         }
     </style>
 </head>
@@ -202,7 +236,6 @@
     <div class="container">
         <!-- LEFT PANEL -->
         <div class="left-panel">
-            <!-- Ensure your logo image is uploaded to GitHub and matches this name -->
             <img src="my-logo.png" alt="Logo" class="logo">
             <div class="channel-name">Your Channel Name</div>
             <div class="description-box">
@@ -214,29 +247,38 @@
         <div class="right-panel">
             <h3 class="section-title">Support My Work</h3>
             
+            <!-- Standard Tiers -->
             <div class="tiers">
-                <button class="tier-btn silver" onclick="generateQR(49, 'Silver')">Silver<br>₹49</button>
-                <button class="tier-btn gold" onclick="generateQR(249, 'Gold')">Gold<br>₹249</button>
-                <button class="tier-btn diamond" onclick="generateQR(500, 'Diamond')">Diamond<br>₹500</button>
+                <button class="tier-btn silver" onclick="generateQR(49, 'Silver')">SILVER<br>₹49</button>
+                <button class="tier-btn gold" onclick="generateQR(249, 'Gold')">GOLD<br>₹249</button>
+                <button class="tier-btn diamond" onclick="generateQR(500, 'Diamond')">DIAMOND<br>₹500</button>
             </div>
 
+            <!-- Custom Amount Generator -->
+            <div class="custom-amount-wrapper">
+                <input type="number" id="custom-amount" class="custom-input" placeholder="Enter custom amount (₹)" min="1">
+                <button class="custom-btn" onclick="generateCustomQR()">Generate</button>
+            </div>
+
+            <!-- QR Code Display -->
             <div class="qr-display">
-                <p id="qr-instruction" style="color: #cccccc; font-weight: bold;">Select a tier above to generate QR</p>
+                <p id="qr-instruction">Select a tier or enter amount</p>
                 <img id="qr-image" src="" alt="Payment QR Code" style="display: none;">
                 <div class="upi-id">UPI ID: <strong id="display-upi">yourname@upi</strong></div>
             </div>
 
+            <!-- Socials -->
             <div class="social-links">
-                <a href="YOUR_INSTA_LINK" class="social-btn insta">Instagram</a>
-                <a href="YOUR_YT_LINK" class="social-btn yt">YouTube</a>
+                <a href="YOUR_INSTA_LINK" class="social-btn insta">INSTAGRAM</a>
+                <a href="YOUR_YT_LINK" class="social-btn yt">YOUTUBE</a>
             </div>
         </div>
     </div>
 
     <script>
         // --- IMPORTANT: UPDATE THESE TWO LINES ---
-        const MY_UPI_ID = "yourname@upi"; // Put your actual UPI ID inside the quotes
-        const MY_NAME = "Your Name";      // Put your actual display name inside the quotes
+        const MY_UPI_ID = "yourname@upi"; 
+        const MY_NAME = "Your Name";      
         // -----------------------------------------
 
         function generateQR(amount, tierName) {
@@ -244,17 +286,25 @@
             const qrInstruction = document.getElementById("qr-instruction");
             const upiText = document.getElementById("display-upi");
             
-            // This formats the payment link perfectly for Indian UPI apps
             const upiLink = `upi://pay?pa=${MY_UPI_ID}&pn=${MY_NAME}&am=${amount}&cu=INR`;
-            
-            // This free API takes the UPI link and converts it into a scannable image instantly
             const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiLink)}`;
             
-            // Updates the webpage with the new QR code and amount
             qrImage.src = qrApiUrl;
             qrImage.style.display = "block";
             qrInstruction.innerText = `${tierName} Tier - Scan to pay ₹${amount}`;
             upiText.innerText = MY_UPI_ID;
+        }
+
+        // New function specifically for the custom amount box
+        function generateCustomQR() {
+            const amountInput = document.getElementById("custom-amount").value;
+            
+            // Checks if the user actually typed a valid number before generating
+            if(amountInput && amountInput > 0) {
+                generateQR(amountInput, "Custom");
+            } else {
+                alert("Please enter a valid amount.");
+            }
         }
     </script>
 
